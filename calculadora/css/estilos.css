@@ -1,73 +1,110 @@
+#fondo {
+	background: linear-gradient(to right, rgba(0, 0, 0, 0.959), rgba(39, 7, 244, 0.456));
+}
+
+
 .calculadora {
 	width: 300px;
 	margin: 0 auto;
-	background-color: #f7f7f7;
+	background: linear-gradient(to right, #2d02eb, #0e50de, #39e20a);
+	background-color: #f7fc52;
 	border: 1px solid #ccc;
 	border-radius: 5px;
-	box-shadow: 0px 2px 5px rgba(0,0,0,0.3);
+	box-shadow: 0px 2px 5px rgba(103, 245, 33, 0.3);
 	font-family: Arial, sans-serif;
 	font-size: 16px;
 	text-align: center;
 	padding: 20px;
-  }
-  
-  .pantalla {
+}
+
+.pantalla {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: flex-end;
 	margin-bottom: 20px;
-  }
-  
-  .input {
+
+
+}
+
+#resultado {
+	width: 80%;
+	height: auto;
+	padding: 10px;
+	font-size: 1.3em;
+
+}
+
+.input {
 	width: 100%;
 	font-size: 24px;
-	padding: 10px;
+	padding: 30px;
 	border: none;
 	border-bottom: 1px solid #ccc;
 	outline: none;
 	text-align: right;
-  }
-  
-  .botones {
+}
+
+.botones {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	grid-gap: 10px;
-  }
-  
-  button {
+}
+
+button {
 	background-color: #eee;
-	color: #333;
+	color: #333333;
 	font-size: 24px;
 	border: none;
 	border-radius: 5px;
 	padding: 15px;
 	cursor: pointer;
 	transition: all 0.2s ease;
-  }
-  
-  button:hover {
-	background-color: #333;
+}
+
+button:hover {
+	background-color: #9ccf11;
 	color: #fff;
-  }
-  
-  .operacion {
+}
+
+.operacion {
 	background-color: #f2a33c;
 	color: #fff;
-  }
-  
-  .numero {
+}
+
+.numero {
 	background-color: #eee;
 	color: #333;
-  }
-  
-  .igual {
+}
+
+.igual {
 	background-color: #009688;
 	color: #fff;
-  }
-  
-  .borrar {
+}
+
+.borrar {
 	background-color: #e74c3c;
 	color: #fff;
-  }
-  
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+/* Título con estilo */
+.stylish-title {
+	font-family: 'Pacifico', cursive;
+	font-size: 10em;
+	background-image: linear-gradient(to right, #ff765b, #4dc8de, #FFD200);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	text-align: center;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+@media (max-width: 768px) {
+	.stylish-title {
+		font-size: 5em;
+		margin-top: 30px;
+		margin-bottom: 30px;
+	}
+}
