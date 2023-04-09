@@ -13,104 +13,18 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     />
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
+    <link
+  rel="stylesheet"
+  type="text/css"
+  href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css"
+/>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
     <!-- ... -->
-    <!-- <link rel="stylesheet" href="./css/styles.css" /> -->
-
-    <style>
-      /* ===================  Start Fondo de imagen ====================== */
-      body {
-        background-image: url("./img/restaurante.jpeg");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-      }
-
-      .blur {
-        backdrop-filter: blur(3px);
-        background-color: rgba(255, 255, 255, 0.2);
-        padding: 100px;
-        border-radius: 10px;
-      }
-
-      /* ===================  End Fondo de imagen ====================== */
-
-      .container {
-        max-width: 600px;
-        margin-top: 50px;
-        background-color: rgba(255, 255, 255, 0.8);
-        padding: 20px;
-        border-radius: 10px;
-      }
-
-      h1 {
-        font-weight: bold;
-        color: #333;
-      }
-
-      h2 {
-        font-weight: bold;
-        color: #efefef;
-      }
-
-      form {
-        background-color: rgba(108, 108, 108, 0.298);
-        padding: 35px;
-        border-radius: 10px;
-      }
-
-      button {
-        width: 100%;
-      }
-
-      img {
-        width: 100%;
-        height: 90%;
-        object-fit: cover;
-        padding: 3px;
-        margin-bottom: 10px;
-        border-radius: 30px;
-      }
-
-      .card {
-        width: 100%;
-        max-width: 90%; /* Ajusta el ancho máximo de la tarjeta al 90% del contenedor */
-        margin: 1rem;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        border-radius: 5px;
-        overflow: hidden;
-      }
-
-      /* Personalizar los colores de la tarjeta de reserva */
-      .card-header {
-        background-color: #007bff;
-        /* Establece el color de fondo del encabezado de la tarjeta */
-        color: #ffffff;
-        /* Establece el color del texto del encabezado de la tarjeta */
-        font-weight: bold;
-        /* Establece el estilo del texto en negrita */
-      }
-
-      .card-body {
-        background-color: #f8f9fa;
-        /* Establece el color de fondo del cuerpo de la tarjeta */
-        color: #212529;
-        /* Establece el color del texto del cuerpo de la tarjeta */
-        padding: 0.5rem;
-        /* Aumenta el espacio interior del cuerpo de la tarjeta */
-      }
-
-      /* Estilos para pantallas ultra anchas */
-      #reservationData {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(90%, 1fr));
-        
-        grid-gap: 1rem;
-        justify-content: center;
-        align-items: start;
-      }
-    </style>
+    <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body class="blur">
     <div class="container">
@@ -149,8 +63,16 @@
               <input type="text" id="date" class="form-control" required />
             </div>
             <div class="form-group">
-              <label for="time">Hora:</label>
-              <input type="time" id="time" class="form-control" required />
+              <label for="time">Hora:</label><br>
+              <!-- <input type="time" id="time" class="form-control" required /> -->
+              <select id="time" name="time" class="time-select form-control" required>
+                <option value="" disabled selected>Elige una hora</option>
+                <option value="09:00">09:00</option>
+                <option value="09:45">09:45</option>
+                <option value="10:30">10:30</option>
+                <option value="11:15">11:15</option>
+                <option value="12:00">12:00</option>
+              </select>
             </div>
             <div class="form-group">
               <label for="numPeople">Número de personas:</label>
@@ -164,6 +86,7 @@
             </div>
             <button type="submit" class="btn btn-primary">Reservar</button>
           </form>
+          
         </div>
       </div>
     </div>
@@ -172,68 +95,13 @@
       <h2>Datos de la reserva</h2>
       <div id="reservationData" class="row"></div>
     </div>
+   
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <!-- <script src="./js/reservas.js"></script> -->
-
-    <script>
-       $(function() {
-        $("#date").datepicker({
-          dateFormat: "yy-mm-dd"
-        });
-      }); 
-      document
-        .getElementById("reservationForm")
-        .addEventListener("submit", function (event) {
-          event.preventDefault();
-
-          const name = document.getElementById("name").value;
-          const phone = document.getElementById("phone").value;
-          const date = document.getElementById("date").value;
-          const time = document.getElementById("time").value;
-          const numPeople = document.getElementById("numPeople").value;
-
-          function getRandomImage() {
-            const imageNames = [
-              "restaurante_1.jpeg",
-              "restaurante_2.jpeg",
-              "restaurante_3.jpeg",
-              "restaurante_4.jpeg",
-              "restaurante_5.jpeg",
-            ];
-
-            const randomNumber = Math.floor(Math.random() * imageNames.length);
-            return `./img/${imageNames[randomNumber]}`;
-          }
-
-          const reservationData = `
-  <div class="col-12 col-md-6 col-lg-4 mt-4">
-    <div class="card">
-      <img src="${getRandomImage()}" alt="Imagen aleatoria" style="width: 100%; height: auto; object-fit: cover; border-top-left-radius: 5px; border-top-right-radius: 5px;" />
-      <div class="card-header">
-        Reserva
-      </div>
-      <div class="card-body">
-        <p>
-          Nombre: ${name}<br>
-          Teléfono: ${phone}<br>
-          Fecha: ${date}<br>
-          Hora: ${time}<br>
-          Número de personas: ${numPeople}
-        </p>
-      </div>
-    </div>
-  </div>
-`;
-          document
-            .getElementById("reservationData")
-            .insertAdjacentHTML("beforeend", reservationData);
-          document.getElementById("reservationDataContainer").style.display =
-            "block";
-        });
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script src="./js/reservas.js"></script>
   </body>
 </html>
