@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reservas de mesas</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!-- ... -->
+    <!-- <link rel="stylesheet" href="./css/styles.css" /> -->
+
+    <style>
+      /* ===================  Start Fondo de imagen ====================== */
+      body {
+        background-image: url("./img/restaurante.jpeg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+      }
+
+      .blur {
+        backdrop-filter: blur(3px);
+        background-color: rgba(255, 255, 255, 0.2);
+        padding: 100px;
+        border-radius: 10px;
+      }
+
+      /* ===================  End Fondo de imagen ====================== */
+
+      .container {
+        max-width: 600px;
+        margin-top: 50px;
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 10px;
+      }
+
+      h1 {
+        font-weight: bold;
+        color: #333;
+      }
+
+      h2 {
+        font-weight: bold;
+        color: #efefef;
+      }
+
+      form {
+        background-color: rgba(108, 108, 108, 0.298);
+        padding: 35px;
+        border-radius: 10px;
+      }
+
+      button {
+        width: 100%;
+      }
+
+      img {
+        width: 100%;
+        height: 90%;
+        object-fit: cover;
+        padding: 3px;
+        margin-bottom: 10px;
+        border-radius: 30px;
+      }
+
+      .card {
+        width: 100%;
+        max-width: 90%; /* Ajusta el ancho máximo de la tarjeta al 90% del contenedor */
+        margin: 1rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        overflow: hidden;
+      }
+
+      /* Personalizar los colores de la tarjeta de reserva */
+      .card-header {
+        background-color: #007bff;
+        /* Establece el color de fondo del encabezado de la tarjeta */
+        color: #ffffff;
+        /* Establece el color del texto del encabezado de la tarjeta */
+        font-weight: bold;
+        /* Establece el estilo del texto en negrita */
+      }
+
+      .card-body {
+        background-color: #f8f9fa;
+        /* Establece el color de fondo del cuerpo de la tarjeta */
+        color: #212529;
+        /* Establece el color del texto del cuerpo de la tarjeta */
+        padding: 0.5rem;
+        /* Aumenta el espacio interior del cuerpo de la tarjeta */
+      }
+
+      /* Estilos para pantallas ultra anchas */
+      #reservationData {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(90%, 1fr));
+        
+        grid-gap: 1rem;
+        justify-content: center;
+        align-items: start;
+      }
+    </style>
+  </head>
+  <body class="blur">
+    <div class="container">
+      <h1 class="text-center my-4">Reserva de mesas</h1>
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <img
+            src="./img/reserva_1.webp"
+            alt="Imagen descriptiva"
+            class="img-fluid"
+          />
+          <img
+            src="./img/reserva_2.jpeg"
+            alt="Imagen descriptiva"
+            class="img-fluid"
+          />
+          <img
+            src="./img/reserva_3.jpeg"
+            alt="Imagen descriptiva"
+            class="img-fluid"
+          />
+        </div>
+
+        <div class="col-md-6">
+          <form id="reservationForm">
+            <div class="form-group">
+              <label for="name">Nombre:</label>
+              <input type="text" id="name" class="form-control" required />
+            </div>
+            <div class="form-group">
+              <label for="phone">Teléfono:</label>
+              <input type="text" id="phone" class="form-control" required />
+            </div>
+            <div class="form-group">
+              <label for="date">Fecha:</label>
+              <input type="text" id="date" class="form-control" required />
+            </div>
+            <div class="form-group">
+              <label for="time">Hora:</label>
+              <input type="time" id="time" class="form-control" required />
+            </div>
+            <div class="form-group">
+              <label for="numPeople">Número de personas:</label>
+              <input
+                type="number"
+                id="numPeople"
+                class="form-control"
+                min="1"
+                required
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">Reservar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- Agregar después del formulario de reserva -->
+    <div id="reservationDataContainer" style="display: none">
+      <h2>Datos de la reserva</h2>
+      <div id="reservationData" class="row"></div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!-- <script src="./js/reservas.js"></script> -->
+
+    <script>
+       $(function() {
+        $("#date").datepicker({
+          dateFormat: "yy-mm-dd"
+        });
+      }); 
+      document
+        .getElementById("reservationForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const name = document.getElementById("name").value;
+          const phone = document.getElementById("phone").value;
+          const date = document.getElementById("date").value;
+          const time = document.getElementById("time").value;
+          const numPeople = document.getElementById("numPeople").value;
+
+          function getRandomImage() {
+            const imageNames = [
+              "restaurante_1.jpeg",
+              "restaurante_2.jpeg",
+              "restaurante_3.jpeg",
+              "restaurante_4.jpeg",
+              "restaurante_5.jpeg",
+            ];
+
+            const randomNumber = Math.floor(Math.random() * imageNames.length);
+            return `./img/${imageNames[randomNumber]}`;
+          }
+
+          const reservationData = `
+  <div class="col-12 col-md-6 col-lg-4 mt-4">
+    <div class="card">
+      <img src="${getRandomImage()}" alt="Imagen aleatoria" style="width: 100%; height: auto; object-fit: cover; border-top-left-radius: 5px; border-top-right-radius: 5px;" />
+      <div class="card-header">
+        Reserva
+      </div>
+      <div class="card-body">
+        <p>
+          Nombre: ${name}<br>
+          Teléfono: ${phone}<br>
+          Fecha: ${date}<br>
+          Hora: ${time}<br>
+          Número de personas: ${numPeople}
+        </p>
+      </div>
+    </div>
+  </div>
+`;
+          document
+            .getElementById("reservationData")
+            .insertAdjacentHTML("beforeend", reservationData);
+          document.getElementById("reservationDataContainer").style.display =
+            "block";
+        });
+    </script>
+  </body>
+</html>
