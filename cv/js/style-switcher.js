@@ -27,6 +27,7 @@ function setActiveStyle(color)
         }
     })
 }
+
 /*====================  theme light and dark mode    ==================== */
 
 const dayNight = document.querySelector(".day-night");
@@ -44,6 +45,33 @@ window.addEventListener("load",() =>{
     }
 })
 
+/*====================  change color automatic   ==================== */
 
-    
+    // Seleccionar los elementos que se quieren cambiar de color
+const elements = document.querySelectorAll(".color-change");
+
+// Array de colores disponibles
+const colors = ["#ff0000", "#00ff00", "#0000ff", "#ffff00", "#ff00ff", "#00ffff"];
+
+// Función para establecer el color activo
+function setActiveColor(color) {
+  elements.forEach((element) => {
+    element.style.color = color;
+  });
+}
+
+// Función para obtener un número aleatorio de 0 a la longitud de la lista de colores
+function getRandomColorIndex() {
+  return Math.floor(Math.random() * colors.length);
+}
+
+// Función para cambiar el color activo al color aleatorio
+function changeColor() {
+  const randomColorIndex = getRandomColorIndex();
+  const randomColor = colors[randomColorIndex];
+  setActiveColor(randomColor);
+}
+
+// Cambia el color cada 5 segundos
+setInterval(changeColor, 5000);
     
