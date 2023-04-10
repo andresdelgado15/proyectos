@@ -16,3 +16,4 @@ function calcular() {
 		resultado.value = 'Error';
 	}
 }
+

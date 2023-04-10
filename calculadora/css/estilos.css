@@ -1,12 +1,12 @@
 #fondo {
-	background: linear-gradient(to right, rgba(0, 0, 0, 0.959), rgba(39, 7, 244, 0.456));
+	background: linear-gradient(to right, #2d02eb, #000000, #39e20a);
 }
 
 
 .calculadora {
 	width: 300px;
 	margin: 0 auto;
-	background: linear-gradient(to right, #2d02eb, #0e50de, #39e20a);
+	background: linear-gradient(to right, #2d02eb, #000000, #39e20a);
 	background-color: #f7fc52;
 	border: 1px solid #ccc;
 	border-radius: 5px;
@@ -86,6 +86,22 @@ button:hover {
 	background-color: #e74c3c;
 	color: #fff;
 }
+
+.salida_boton {
+	background-color: #2bf22434; 
+	width: 200px;
+	color: white; 
+	border: none; 
+	padding: 10px; 
+	font-size: 16px; 
+	border-radius: 25px; 
+	cursor: pointer; 
+	position: fixed; 
+	bottom: 100px; 
+	left: 50%; 
+	transform: translateX(-100px);
+	transition: all 0.3s ease-in-out;
+  }
 
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
