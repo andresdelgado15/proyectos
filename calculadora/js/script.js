@@ -1,19 +1,18 @@
-function agregar(valor) {
-	var resultado = document.getElementById('resultado');
-	resultado.value += valor;
-}
-
-function borrar() {
-	var resultado = document.getElementById('resultado');
-	resultado.value = '';
-}
-
-function calcular() {
-	var resultado = document.getElementById('resultado');
-	try {
-		resultado.value = eval(resultado.value);
-	} catch (error) {
-		resultado.value = 'Error';
-	}
-}
-
+function insert(value) {
+	document.getElementById('result').value += value;
+  }
+  
+  function clearResult() {
+	document.getElementById('result').value = '';
+  }
+  
+  function deleteLastChar() {
+	let result = document.getElementById('result').value;
+	document.getElementById('result').value = result.slice(0, -1);
+  }
+  
+  function calculate() {
+	let result = document.getElementById('result').value;
+	let calculatedResult = eval(result);
+	document.getElementById('result').value = calculatedResult;
+  }
