@@ -5,31 +5,102 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="css/prueba.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-t8pfZf5GvldBCdDx4A4+k61P+5zKVnmXCp1TXcEkeJ+XrkGnwL1jjhPE/4Jx4Q0y/kWf+PQmJlKd3q3OfKL1Ww==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <link rel="stylesheet" href="css/prueba.css"> -->
     <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-  />  
-</head>
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-t8pfZf5GvldBCdDx4A4+k61P+5zKVnmXCp1TXcEkeJ+XrkGnwL1jjhPE/4Jx4Q0y/kWf+PQmJlKd3q3OfKL1Ww=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        background-color: #d2d2d2;
+        font-family: "Roboto", sans-serif;
+      }
+
+      .nav1 {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1vw 5vw;
+        background-color: #fff;
+        color: #000000;
+        border-bottom: 2px solid #d2d2d2;
+      }
+
+      .nav1 ul {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        margin-left: auto;
+      }
+
+      .nav1 li:not(:last-child) {
+        margin-right: 50px;
+      }
+
+      .nav1 a {
+        color: #000000;
+        text-decoration: none;
+        font-size: 18px;
+        padding-right: 5px;
+      }
+
+      .nav1 .search i {
+        font-size: 18px;
+        color: #000000;
+        cursor: pointer;
+      }
+
+      .nav1 .logo {
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+        
+
+      }
+      .nav1 .logo a {
+        display: flex;
+        align-items: center;
+        font-size: 30px;
+      }
+      .nav1 .logo i {
+        display: flex;
+        align-items: flex-end;
+        margin-top: 10px;
+        
+      }
+
+      
+    </style>
+  </head>
+
   <body>
-    <nav>
-        <div class="logo">
-          <img src="android-logo.png" alt="Android logo" />
-          <h1>Android</h1>
-        </div>
-        <ul>
-          <li><a href="#">What is Android</a></li>
-          <li><a href="#">Android 13</a></li>
-          <li><a href="#">Phones</a></li>
-          <li><a href="#">Tablets</a></li>
-          <li><a href="#">Enterprise</a></li>
-          
-        </ul>
-        <div class="search">
-          <a href="#"><i class="fa fa-search"></i></a>
-        </div>
-      </nav>
-   
+    <nav class="nav1">
+      <div class="logo">
+        
+        <a href="#">android</a>
+        <i class="fa-brands fa-android fa-xl" style="color: #1eff00;"></i>
+      </div>
+      <ul>
+        <li><a href="#">What is Android</a></li>
+        <li><a href="#">Android 13</a></li>
+        <li><a href="#">Phones</a></li>
+        <li><a href="#">Tablets</a></li>
+        <li><a href="#">Enterprise</a></li>
+        <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
+      </ul>
+    </nav>
   </body>
 </html>
